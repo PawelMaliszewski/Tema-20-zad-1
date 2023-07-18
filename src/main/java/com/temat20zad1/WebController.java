@@ -1,7 +1,6 @@
 package com.temat20zad1;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class WebController {
@@ -15,11 +14,11 @@ public class WebController {
     @GetMapping("/users")
     @ResponseBody
     public String getUsers() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < userDataBase.getUserList().size(); i++) {
-            result += userDataBase.getUserList().get(i).toString() + "</br>";
+            result.append(userDataBase.getUserList().get(i).toString()).append("</br>");
         }
-        return result;
+        return result.toString();
     }
 
     @GetMapping("/add")
