@@ -35,7 +35,7 @@ public class User {
         this.age = age;
     }
 
-    private String printAge() {
+    private String ageInfo() {
         if (age <1) {
             return "nie wpisano danych";
         }
