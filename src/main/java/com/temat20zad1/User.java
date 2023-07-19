@@ -44,6 +44,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "Imię: " + firstName + ", Nazwisko: " + lastName + ", Wiek: " + printAge();
+        return "Imię: " + firstName + ", Nazwisko: " + lastName + ", Wiek: " + ageInfo();
     }
 }
