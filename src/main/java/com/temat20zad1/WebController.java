@@ -21,26 +21,16 @@ public class WebController {
         return result.toString();
     }
 
-    @GetMapping("/add")
-    public String addUser(@RequestParam(required = false) String imie,
-                                @RequestParam(required = false) String nazwisko,
-                                @RequestParam(required = false) Integer wiek) {
-        if (imie == null) {
-            return "err.html";
-        }
-        addNewUser(imie, nazwisko, wiek);
-        return "success.html";
-    }
-
-    @PostMapping("/addUserForm")
+    @RequestMapping("/add")
     String addUserForm(@RequestParam(required = false) String imie,
-                             @RequestParam(required = false, defaultValue = "nie podano") String nazwisko,
+                             @RequestParam(required = false, defaultValue = "nie wpisano danych") String nazwisko,
                              @RequestParam(required = false, defaultValue = "0") Integer wiek) {
-        if (imie.length() < 1) {
+        if (imie == null || imie.length() < 1) {
             return "redirect:/err.html";
         }
         addNewUser(imie, nazwisko, wiek);
         return "redirect:/success.html";
+
     }
 
     private void addNewUser(String imie, String nazwisko, Integer wiek) {

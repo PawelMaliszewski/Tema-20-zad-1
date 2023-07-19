@@ -35,8 +35,15 @@ public class User {
         this.age = age;
     }
 
+    private String printAge() {
+        if (age <1) {
+            return "nie wpisano danych";
+        }
+        return Integer.toString(age);
+    }
+
     @Override
     public String toString() {
-        return "Imię: " + firstName + ", Nazwisko: " + lastName + ", Wiek: " + age;
+        return "Imię: " + firstName + ", Nazwisko: " + lastName + ", Wiek: " + printAge();
     }
 }
